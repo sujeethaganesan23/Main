@@ -1,0 +1,18 @@
+
+<section class="container">
+    <div class="top-banner">
+        <div class="logo-banner row">
+            <div class="col-lg-4">
+                <img src="../app/assets/images/logo.png">
+                <span class="logo-font">CI LAYOUT</span>
+            </div>
+        </div>
+        <nav class="navbar nav-edit" [style.display]="shownav ? 'block' :  'none'" >
+            <ul class="nav navbar-nav">
+                <li class="active"><a [routerLink]="['register']">Register</a></li>
+                <li><a [routerLink]="['faq']" (click)=navfaq()>Faq</a></li>
+            </ul>
+        </nav>
+    </div>
+    <router-outlet></router-outlet>
+</section>

@@ -1,0 +1,22 @@
+.userLog
+{
+    margin: 0 auto;
+    width: 28%;
+    margin-top: 60px;
+    box-shadow: inset 0px 2px 25px #93cede, 0px 2px 25px #59aec6;
+    padding: 28px 20px 9px 0;
+    border-radius: 5px; 
+}
+.login{
+  margin-left: 35%;
+}
+.forgot{
+  color: #cc0000;
+  font-size: 12px;
+}
+.errorMessage{
+  font-size: 12px;
+  color: #ff0000;
+  text-align: center;
+  margin: 8px 10px 10px 30px;
+}

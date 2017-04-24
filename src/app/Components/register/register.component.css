@@ -1,0 +1,74 @@
+.registerContain{
+    margin-top: 3%;
+}
+.saveBtn{
+    margin-left: 50%;
+}
+textarea{
+    resize: none;
+    overflow: hidden;
+}
+.idNameContain{
+    position: absolute;
+    bottom: 91px;
+    left: 67px;
+    width: 155px;
+}
+.idEdit{
+    font-size: 28px;
+    font-weight: bolder;
+    text-align: center;
+}
+.nameEdit{
+    font-size: 18px;
+    text-align: center;
+    font-family: Arial;
+    margin:0px;
+}
+.idContain{
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    right: 139px;
+    top: 154px;
+}
+#idEdit{
+    font-size: 17px;
+    font-weight: bold;
+}
+.addressContain{
+    position: absolute;
+    right: 19%;
+    bottom: 33%;
+    width: 215px;
+    min-height: 120px;
+    padding-top: 5px;
+}
+.addressText{
+    margin-bottom: 4px;
+    font-size: 11px;
+    font-family: Arial;
+}
+.textEdit{
+    font-size: 12px;
+    font-weight: bolder;        
+}
+.addressContain textarea{
+    border: none;
+    margin-left: 9px;
+    resize: none;
+    padding-top: 5px;
+    overflow: hidden;
+    font-size: 11px;
+    font-family: Arial;
+    width: 96%;
+    height: 50px;
+}
+.lost
+{
+display:none;
+}
+.updateBtn
+{
+    margin-left: 50%;
+}

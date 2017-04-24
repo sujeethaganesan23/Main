@@ -1,0 +1,158 @@
+<div class="col-lg-12 registerContain">
+<div class="col-lg-6">
+    <form class="form-horizontal" novalidate [formGroup]="registerForm">
+        <div class="form-group">
+            <input type="text" class="form-control lost" formControlName="_id"> 
+            <label class="col-lg-3">Employee Id:</label>
+            <div class="col-lg-9">
+                <input type="text" class="form-control" formControlName="empid">
+            </div>
+        </div>
+        <div *ngIf="registerForm.controls['empid'].hasError('required') && registerForm.controls.empid.touched " class="errorMessage">
+                    please enter an id
+        </div>
+        <div *ngIf="registerForm.controls['empid'].hasError('pattern')"  class="errorMessage">
+                    Enter a valid 6 digit number
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Employee Name:</label>
+            <div class="col-lg-9">
+                <input type="text" class="form-control" formControlName="empname">
+            </div>
+        </div>
+        <div *ngIf="registerForm.controls['empname'].hasError('required') && registerForm.controls.empname.touched " class="errorMessage">
+                    please enter a name
+        </div>
+        <div *ngIf="registerForm.controls['empname'].hasError('pattern')"  class="errorMessage">
+                    Enter a valid  name
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Title:</label>
+            <div class="col-lg-9">
+                <select class="form-control" formControlName="title">
+                    <option hidden></option>
+                    <option>PM</option>
+                    <option>PAT</option>
+                    <option>PA</option>
+                </select>
+            </div>
+        </div>
+        <div [hidden]="registerForm.controls.title.untouched || registerForm.controls.title.valid" class="errorMessage">
+                    please select a title
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Position:</label>
+            <div class="col-lg-9">
+                <input type="radio" name="position" value="On site" formControlName="position">On site
+                <input type="radio" name="position" value="Off site" formControlName="position">Off site
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Competency:</label>
+            <div class="col-lg-9">
+                <select class="form-control" formControlName="competency">
+                    <option hidden></option>
+                    <option>CI WEB</option>
+                    <option>CI RIA</option>
+                    <option>CI</option>
+                </select>
+            </div>
+        </div>
+        <div [hidden]="registerForm.controls.competency.untouched || registerForm.controls.competency.valid" class="errorMessage">
+                    please select competency
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Contact No:</label>
+            <div class="col-lg-9">
+                <input type="text" class="form-control" formControlName="contact">
+            </div>
+        </div>
+        <div *ngIf="registerForm.controls['contact'].hasError('required') && registerForm.controls.contact.touched " class="errorMessage">
+                    please enter contact number
+        </div>
+        <div *ngIf="registerForm.controls['contact'].hasError('pattern')"  class="errorMessage">
+                    Enter a valid contact number
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Blood Group:</label>
+            <div class="col-lg-9">
+                <input type="text" class="form-control" formControlName="blood">
+            </div>
+        </div>
+        <div *ngIf="registerForm.controls['blood'].hasError('required') && registerForm.controls.blood.touched " class="errorMessage">
+                    please enter blood group
+        </div>
+        <div *ngIf="registerForm.controls['blood'].hasError('pattern')"  class="errorMessage">
+                    Enter a valid blood group
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3">Address:</label>
+            <div class="col-lg-9">
+                <textarea class="form-control" formControlName="address"></textarea>
+            </div>
+        </div>
+        <div *ngIf="registerForm.controls['address'].hasError('required') && registerForm.controls.address.touched " class="errorMessage">
+                    please enter address
+        </div>
+        <button class="btn btn-primary btn-lg saveBtn" (click)=submit(registerForm.value) *ngIf="saveShow">save</button>
+        <button class="btn btn-primary btn-lg updateBtn" (click)="update(registerForm.value, registerForm.controls._id.value)" *ngIf="updateShow">update</button>
+    </form>
+</div>
+<div class="col-lg-6">
+    <img src="../app/assets/images/id_image.png" alt="id image">
+    <div class="idNameContain">
+        <p class="nameEdit">{{registerForm.value.empname}}</p>
+        <p class="idEdit">{{registerForm.value.empid}}</p>
+    </div>
+    <div class="idContain">
+        <p id="idEdit">{{registerForm.value.empid}}</p>
+    </div>
+    <div class="addressContain">
+        <p class="addressText">Emergency Contact<span class="textEdit"> #{{registerForm.value.contact}}</span></p>
+        <p class="addressText">Blood Group<span class="textEdit"> {{registerForm.value.blood}}</span></p>
+        <p class="addressText">Address</p>
+        <textarea>{{registerForm.value.address}}</textarea>
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+                    <tr>
+                        <th>
+                            Employee Id
+                        </th>
+                        <th>
+                            Employee Name
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Competency
+                        </th>
+                        <th>
+                            Position
+                        </th>
+                        <th>
+                            Edit
+                        </th>
+                        <th>
+                            Delete
+                        </th>
+                    </tr>
+                </thead>
+    <tbody>
+      <tr *ngFor = 'let data of datas; let i = index' >
+        <td>{{data.empid}}</td>
+        <td>{{data.empname}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.competency}}</td>
+        <td>{{data.position}}</td>
+        <td><button class="btn btn-info" (click)="edit(i)">Edit</button></td>
+        <td><button class="btn btn-info" (click)="delete(data._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
